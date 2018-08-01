@@ -1,2 +1,2 @@
 # AirHelper
-An airline manager
+An airline manager website
