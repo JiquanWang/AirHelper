@@ -1,0 +1,321 @@
+/*瀛椾綋缁熶竴璁剧疆*/
+body
+{
+	font: 12px/1.5 "\5FAE\8F6F\96C5\9ED1","Microsoft Yahei","Hiragino Sans GB",tahoma,arial,"\5B8B\4F53";
+	width: 100%;
+	height: 100%;
+}
+
+a,a:link, a:visited
+{
+	color:#666;
+}
+a:hover
+{
+	color: #469dcd;
+}
+a
+{
+	text-decoration: none;
+}
+
+.header_wrap
+{
+	border-bottom: 2px solid #ddd;
+	width:100%;
+	height: 60px;
+}
+
+.header
+{
+	width: 1200px ;
+	margin: 0 auto; /*涓婁笅杈圭晫鏄�0锛屽乏鍙宠竟鐣岃嚜閫傚簲*/
+	height: 100%;
+}
+
+.header .topMenuAll
+{
+	padding: 6px 0;
+	height:48px;
+}
+
+.header .logo
+{
+	margin: 0 auto;
+	float: left;
+	width: 200px;
+}
+
+.header .logo a
+{
+	left: 0;
+	top: 0;
+	height:50px;
+	display: inline-block;
+}
+
+.logo .logo_pic
+{
+	margin: 5px 0;
+	height: 80%;
+	display: inline-block;
+}
+
+.logo .logo_title
+{
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 5px;
+	padding-bottom: 20px;
+}
+.header .logo span
+{
+	font-size: 30px;
+	letter-spacing: 1px;
+	display: inline-block;
+}
+
+.header .top_menu
+{
+	font-size: 20px;
+	height: 40px;
+	margin: 0 auto;
+	padding: 8px 20px 8px 0px;
+	float: right;
+	list-style: none;
+}
+
+.user
+{
+	float:right;
+	width:100px;
+	padding:8px 20px 8px 0px;
+}
+
+.user button
+{
+	width: 100%;
+	padding: 5px 10px;
+	background:#0099cc;
+	color: #fff;
+	font-size: 16px;
+  	outline: none;
+  	font-weight: 500;
+  	border: none;
+  	font-family: 'Open Sans', sans-serif;
+}
+
+.header .top_menu li.top_menu_item
+{
+	position: relative;
+	cursor: default;
+	float: left;
+	transition: all .4s;
+	z-index: 9998;
+}
+
+.header .top_menu li.top_menu_item .menu_hd
+{
+	display: inline-block;
+	padding-right: 40px;
+}
+
+.content
+{
+	position: absolute;
+	width: 100%;
+	top:62px;
+	bottom: 0px;
+	left: 0px;
+	
+}
+
+.content .BG
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(../img/back3.jpg);
+	background-size:cover;
+	background-attachment:fixed;
+	display: table-row;
+}
+
+.content .login_box
+{
+	margin: 40px 450px 80px 450px;
+	border: 2px solid #fff;
+	background: rgba(70,157,255,0.3);
+}
+
+.login_box .Description
+{
+	margin: 5px 0;
+}
+
+
+.Description h1
+{
+	text-align:center;
+	color:#fff;
+	font-size: 48px;
+	margin-bottom: 0;
+}
+
+.Description h2
+{
+	text-align:center;
+	color:#fff;
+	font-size: 18px;
+	margin-top: 0px;
+}
+
+.login_box .login_form , .register_form
+{
+	width: 77%;
+	padding: 5px 50px;
+	display: table;
+	text-align: center;
+}
+
+.login_form .form_row
+{
+	display: table-row;
+	margin: 2px 50px;
+}
+
+.login_form input[type="text"]
+{
+	width: 76.2%;
+	padding: 1.25em 1em 1.25em 4em;
+	color: #283440;
+	font-size: 16px;
+  	outline: none;
+  	font-weight: 500;
+  	border: none;
+  	border-bottom:1px solid #C0C3C8;
+  	font-family: 'Open Sans', sans-serif;
+  	background: url("../img/user.png") no-repeat 14px 20px #ffffff;
+   	border-top-left-radius:0.3em;
+   	-o-border-top-left-radius:0.3em;
+   	-moz-border-top-left-radius:0.3em;
+   	-webkit-border-top-right-radius:0.3em;
+    border-top-right-radius:0.3em;
+   	-o-border-top-right-radius:0.3em;
+   	-moz-border-top-right-radius:0.3em;
+   	-webkit-border-top-right-radius:0.3em;
+ }
+
+.login_form input[type="password"]
+{
+	width: 76.2%;
+	padding: 1.25em 1em 1.25em 4em;
+	color: #283440;
+	font-size: 16px;
+	outline: none;
+	font-weight: 500;
+	border: none;
+	font-family: 'Open Sans', sans-serif;
+	background: url("../img/lock.png") no-repeat 14px 20px #ffffff;
+	border: none;
+	border-bottom-left-radius:0.3em;
+	-o-border-bottom-left-radius:0.3em;
+	-moz-border-bottom-left-radius:0.3em;
+	-webkit-border-bottom-right-radius:0.3em;
+	border-bottom-right-radius:0.3em;
+	-o-border-bottom-right-radius:0.3em;
+	-moz-border-bottom-right-radius:0.3em;
+ 	-webkit-border-bottom-right-radius:0.3em;
+}
+
+.login_form input[type="submit"]
+{
+	margin-right: 40px;
+  	font-size: 20px;
+  	font-weight: 300;
+  	color: #fff;
+  	cursor: pointer;
+  	outline: none;
+  	padding: 12px 15px;
+  	width:40%;
+  	border:3px solid #0099cc;
+  	background: #0099cc;
+  	border-radius: 0.3em;
+  	-o-border-radius: 0.3em;
+  	-webkit-border-radius: 0.3em;
+  	-moz-border-radius: 0.3em;
+}
+.login_form input[type="submit"]:hover
+{
+  	background:none;
+  	border: 3px solid #0099cc;
+  	color: #0099cc;
+}
+
+.login_form input[type="reset"]
+{
+  	font-size: 20px;
+  	font-weight: 300;
+  	color: #fff;
+  	cursor: pointer;
+  	outline: none;
+  	padding: 12px 15px;
+  	width:40%;
+  	border:3px solid #0099cc;
+  	background: #0099cc;
+  	border-radius: 0.3em;
+  	-o-border-radius: 0.3em;
+  	-webkit-border-radius: 0.3em;
+  	-moz-border-radius: 0.3em;
+}
+.login_form input[type="reset"]:hover
+{
+  	background:none;
+  	border: 3px solid #0099cc;
+  	color: #0099cc;
+}
+
+.login_form #input_radio
+{
+	width: 76.2%;
+	padding: 1.25em 1em 1.25em 4em;
+	font-size: 16px;
+  	outline: none;
+  	font-weight: 500;
+  	border: none;
+}
+
+
+#input_radio label
+{
+	margin-right: 50px;
+}
+
+.login_form a
+{
+	padding: 1.25em 1em 1.25em 4em;
+	float: right;
+	font-size: 14px;
+	color: #fff;
+}
+
+.login_form a:hover
+{
+	color: #0099cc;
+}
+
+.footer
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	padding: 0 500px;
+}
+
+.footer p
+{
+	margin:0 auto;
+	color: #fff;
+}
+

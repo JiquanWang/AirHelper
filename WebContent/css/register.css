@@ -1,0 +1,121 @@
+.login_box .login_form
+{
+	width: 77%;
+	padding: 5px 50px;
+	display: table;
+	text-align: center;
+}
+
+.register_form .form_row
+{
+	display: table-row;
+	margin: 2px 50px;
+}
+
+.register_form input[type="text"]
+{
+	width: 76.2%;
+	padding: 1.25em 1em 1.25em 4em;
+	color: #283440;
+	font-size: 16px;
+  	outline: none;
+  	font-weight: 500;
+  	border: none;
+  	border-bottom:1px solid #C0C3C8;
+  	font-family: 'Open Sans', sans-serif;
+  	background: url("../img/user.png") no-repeat 14px 20px #ffffff;
+   	border-top-left-radius:0.3em;
+   	-o-border-top-left-radius:0.3em;
+   	-moz-border-top-left-radius:0.3em;
+   	-webkit-border-top-right-radius:0.3em;
+    border-top-right-radius:0.3em;
+   	-o-border-top-right-radius:0.3em;
+   	-moz-border-top-right-radius:0.3em;
+   	-webkit-border-top-right-radius:0.3em;
+ }
+
+.register_form #password
+{
+	width: 76.2%;
+	padding: 1.25em 1em 1.25em 4em;
+	color: #283440;
+	font-size: 16px;
+  	outline: none;
+  	font-weight: 500;
+  	border: none;
+  	border-bottom:1px solid #C0C3C8;
+  	font-family: 'Open Sans', sans-serif;
+  	background: url("../img/lock.png") no-repeat 14px 20px #ffffff;
+}
+
+.register_form #password1
+{
+	width: 76.2%;
+	padding: 1.25em 1em 1.25em 4em;
+	color: #283440;
+	font-size: 16px;
+  	outline: none;
+  	font-weight: 500;
+  	border: none;
+  	font-family: 'Open Sans', sans-serif;
+  	background: url("../img/lock.png") no-repeat 14px 20px #ffffff;
+   	border-bottom-left-radius:0.3em;
+	-o-border-bottom-left-radius:0.3em;
+	-moz-border-bottom-left-radius:0.3em;
+	-webkit-border-bottom-right-radius:0.3em;
+	border-bottom-right-radius:0.3em;
+	-o-border-bottom-right-radius:0.3em;
+	-moz-border-bottom-right-radius:0.3em;
+ 	-webkit-border-bottom-right-radius:0.3em;
+}
+
+.register_form input[type="submit"]
+{
+	margin-top:15px;
+	margin-bottom:20px;
+	margin-right: 40px;
+  	font-size: 20px;
+  	font-weight: 300;
+  	color: #fff;
+  	cursor: pointer;
+  	outline: none;
+  	padding: 12px 15px;
+  	width:40%;
+  	border:3px solid #0099cc;
+  	background: #0099cc;
+  	border-radius: 0.3em;
+  	-o-border-radius: 0.3em;
+  	-webkit-border-radius: 0.3em;
+  	-moz-border-radius: 0.3em;
+}
+.register_form input[type="submit"]:hover
+{
+  	background:none;
+  	border: 3px solid #0099cc;
+  	color: #0099cc;
+}
+
+.register_form input[type="reset"]
+{
+	margin-bottom:20px;
+	margin-top:15px;
+  	font-size: 20px;
+  	font-weight: 300;
+  	color: #fff;
+  	cursor: pointer;
+  	outline: none;
+  	padding: 12px 15px;
+  	width:40%;
+  	border:3px solid #0099cc;
+  	background: #0099cc;
+  	border-radius: 0.3em;
+  	-o-border-radius: 0.3em;
+  	-webkit-border-radius: 0.3em;
+  	-moz-border-radius: 0.3em;
+}
+.register_form input[type="reset"]:hover
+{
+  	background:none;
+  	border: 3px solid #0099cc;
+  	color: #0099cc;
+}

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.demo.mapper.AdminMapper">
+<!-- 管理员登录 -->
+	<select id="adminLogin" resultType="Admin" parameterType="UserLoginVo">
+		select * from airline.admin
+		<where>
+			username='${username}' and password='${password}'
+		</where>
+	</select>
+	
+<!-- 管理员添加航班 -->
+	<insert id="addFlight" parameterType="Flight">
+		insert into flight values('${flightNo}', '${startTime}', '${endTime}', '${from}', '${to}', '${priceU}', '${priceP}', '${airNo}', ${remainU}, ${remainP})
+	</insert>
+	<select id="searchFlight" resultType="Flight" parameterType="Flight">
+		select * from flight
+			<where>
+				flightNo='${flightNo}'
+			</where>
+	</select>
+	
+<!-- 管理员删除航班 -->
+	<delete id="deleteFlight">
+		delete from flight
+			<where>
+				flightNo = '${flightNo}'
+			</where>
+	</delete>
+	
+<!-- 管理员查看航班 -->
+	<select id="viewFlight" resultType="Flight" parameterType="SearchFlightVo">
+		select * from Flight
+		<where>
+				<if test="flightNo != ''">
+					flightNo LIKE '%${flightNo}%' and
+				</if>
+				<if test="startTime !=null">
+					startTime &gt; '${startTime}' and 
+				</if>
+				<if test="endTime !=null">
+					endTime &lt; '${endTime}' and
+				</if>
+				<if test="from !=''">
+					flight.`from` LIKE '%${from}%' and
+				</if>
+				<if test="to != ''">
+					flight.`to` LIKE '${to}%' and
+				</if>
+				1=1 ORDER BY startTime ASC
+		</where>
+	</select>
+	
+<!-- 管理员查看所有用户的订票信息 -->
+	<select id="viewOrder" resultType="Order" parameterType="UserSearchOrderVo">
+		select * from `order`
+		<where>
+				<if test="username!=''">
+			 		 username LIKE '%${username}%' and 
+				</if>
+				<if test="flightNo != ''">
+					flightNo LIKE '%${flightNo}%' and
+				</if>
+				<if test="orderNo != ''">
+					orderNo LIKE '%${orderNo}%' and
+				</if>
+				<if test="startTime !=null">
+					startTime &gt; '${startTime}' and 
+				</if>
+				<if test="endTime !=null">
+					endTime &lt; '${endTime}' and
+				</if>
+				<if test="flag != 1">							 
+					status=1 and
+				</if>
+				1=1 ORDER BY orderTime ASC
+		</where>
+	</select>
+	
+<!-- 管理员查看所有用户的退票信息 -->
+	<select id="viewRefund" resultType="Refund" parameterType="UserSearchRefundVo">
+		select * from refund
+		<where>
+				<if test="flightNo != ''">
+					flightNo LIKE '%${flightNo}%' and
+				</if>
+				<if test="refundNo != ''">
+					refundNo LIKE '%${refundNo}%' and
+				</if>
+				<if test="startTime !=null">
+					startTime &gt; '${startTime}' and 
+				</if>
+				<if test="endTime !=null">
+					endTime &lt; '${endTime}' and
+				</if>
+				<if test="username!=''">
+					username LIKE '%${username}%' and
+				</if>				
+				1=1 ORDER BY refundTime ASC
+		</where>
+	</select>
+	
+<!-- 管理员查看用户账户 -->
+	<select id="viewUser" resultType="User" parameterType="AdminViewUserVo">
+		select * from user
+			<where>
+				<if test="username != ''">
+					username LIKE '%${username}%'
+				</if>
+			</where>
+	</select>
+	
+<!-- 管理员重置用户密码为初始 -->
+	<update id="resetUserPwd" parameterType="User">
+		update user set password='123'
+			<where>
+				username='${username}'
+			</where>
+	</update>
+	
+<!-- 管理员添加机型 -->
+	<insert id="addPlane" parameterType="AirPlane">
+		insert into airplane values('${airNo}', '${rowU}', '${colU}', '${rowP}', '${colP}')
+	</insert>
+	<select id="searchPlane" resultType="AirPlane" parameterType="AirPlane">
+		select * from airplane
+			<where>
+				airNo='${airNo}'
+			</where>
+	</select>
+	
+<!-- 查询所有机型 -->
+	<select id="viewPlane" resultType="AirPlane">
+		select * from airplane
+	</select>
+</mapper>

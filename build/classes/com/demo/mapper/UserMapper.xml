@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.demo.mapper.UserMapper">
+<!-- 用户登录 -->
+	<select id="userLogin" resultType="User" parameterType="UserLoginVo">
+		select * from user
+			<where>
+				user.username = '${username}' and user.password = '${password}'
+			</where>
+	</select>
+	
+<!-- 用户注册 -->
+	<insert id="userRegister" parameterType="UserRegisterVo">
+		insert into user values('${username}', '${password}')
+	</insert>
+	<select id="userSearch" resultType="User" parameterType="UserRegisterVo">
+		select * from user
+			<where>
+				user.username = '${username}'
+			</where>
+	</select>
+	
+<!-- 用户订票 -->
+	<insert id="userOrder" parameterType="UserOrderVo">
+		insert into `order` values('${orderNo}', '${flightNo}', '${username}', '${startTime}', '${endTime}', now(), '${cardNo}', '${phoneNo}', '${price}', '${status}', '${type}')
+	</insert>
+	
+	<update id="updateFlight" parameterType="UserOrderVo">
+		update flight set
+			<if test='type=="P"'>
+				remainP = remainP - 1
+			</if>
+			<if test='type=="U"'>
+				remainU = remainU - 1
+			</if>
+			where flightNo = '${flightNo}'
+	</update>
+<!-- 查看航班 -->
+	<select id="viewFlight" resultType="Flight" parameterType="Flight">
+		select * from flight
+			<where>
+				<if test="flightNo != ''">
+					flightNo LIKE '%${flightNo}%' and
+				</if>
+				<if test="startTime !=null">
+					startTime &gt; '${startTime}' and
+				</if>
+				<if test="endTime !=null">
+					endTime &lt; '${endTime}' and
+				</if>
+				<if test="from !=''">
+					flight.`from` LIKE '%${from}%' and
+				</if>
+				<if test="to != ''">
+					flight.`to` LIKE '%${to}%' and
+				</if>
+				  startTime &gt; now() ORDER BY startTime ASC
+			</where>
+	</select>
+
+<!-- 查看订单 -->
+	<select id="viewOrdered" resultType="Order" parameterType="User">
+		select * from `order`
+			<where>				
+				 username='${username}' and status=1
+			</where>
+	</select>
+	
+	<select id="searchOrdered" resultType="Order" parameterType="UserSearchOrderVo">
+		select * from `order`
+			<where>
+				<if test="username != ''">
+					username='${username}' and 
+				</if>				  
+				<if test="flightNo != ''">
+					flightNo LIKE '%${flightNo}%' and
+				</if>
+				<if test="orderNo != ''">
+					orderNo LIKE '%${orderNo}%' and
+				</if>
+				<if test="startTime !=null">
+					startTime &gt; '${startTime}' and 
+				</if>
+				<if test="endTime !=null">
+					endTime &lt; '${endTime}' and
+				</if>
+				<if test="flag != 1">							 
+					status=1 and
+				</if>
+				1=1 ORDER BY orderTime ASC
+			</where>
+	</select>
+
+<!-- 用户退票 -->
+	<update id="userRefund" parameterType="Order">
+		update `order` set status=0 where orderNo='${orderNo}'
+	</update>
+	<insert id="addRefund" parameterType="Refund">
+		insert into refund values('${refundNo}', '${flightNo}', '${username}', '${startTime}', '${endTime}', now(), '${cardNo}', '${phoneNo}', '${price}', '${type}')
+	</insert>
+	<update id="updateFlight1" parameterType="Refund">
+		update flight set
+			<if test='type=="P"'>
+				remainP = remainP + 1
+			</if>
+			<if test='type=="U"'>
+				remainU = remainU + 1
+			</if>
+			where flightNo = '${flightNo}'
+	</update>
+	
+<!-- 查看退票 -->
+	<select id="viewRefunded" resultType="Refund" parameterType="User">
+		select * from refund
+			<where>
+				username='${username}'
+			</where>
+	</select>
+	
+	<select id="searchRefund" resultType="Refund" parameterType="UserSearchRefundVo">
+		select * from refund
+			<where>
+				<if test="flightNo != ''">
+					flightNo LIKE '%${flightNo}%' and
+				</if>
+				<if test="refundNo != ''">
+					refundNo LIKE '%${refundNo}%' and
+				</if>
+				<if test="startTime !=null">
+					startTime &gt; '${startTime}' and 
+				</if>
+				<if test="endTime !=null">
+					endTime &lt; '${endTime}' and
+				</if>
+				<if test="username != ''">
+					username='${username}' and 
+				</if>
+				1=1 ORDER BY refundTime ASC
+			</where>
+	</select>
+</mapper>
